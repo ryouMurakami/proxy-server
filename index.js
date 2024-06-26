@@ -25,9 +25,9 @@ app.use("/corona-tracker-world-data", limiter, (req, res, next) => {
 });
 
 app.use("/corona-tracker-country-data", (req, res, next) => {
-  const city = url.parse(req.url).query;
+  const country = url.parse(req.url).query;
   createProxyMiddleware({
-    target: `${process.env.BASE_API_URL_CORONA_COUNTRY}/${city}`,
+    target: `${process.env.BASE_API_URL_CORONA_COUNTRY}/${country}`,
     changeOrigin: true,
     pathRewrite: {
       [`^/corona-tracker-country-data`]: "",
